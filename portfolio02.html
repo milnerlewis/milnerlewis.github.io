@@ -3,8 +3,16 @@
     <head>
         <link rel="stylesheet" type="text/css" href="styles02.css">
         <title>LMI Portfolio</title>
+        <link rel="icon" href="placeholder-img.png" type="image/png">
     </head>
     <body>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio01.html">Portfolio 01</a></li>
+                <li><a href="#about-me">About Me</a></li>
+            </ul>
+        </nav>
         <section class="video-section">
             <video autoplay muted loop id="bg-video">
                 <source src="background_video.mp4" type="video/mp4">
@@ -15,9 +23,54 @@
                 <img src="white_downarrow.png" alt="Overlay" class="overlay-img">
             </div>
         </section>
-        <div class="content">
-            <h1>About Me</h1>
-            <p>This is a test to get my stylesheet working</p>
+        <h1 id="about-me">About Me</h1>
+        <div class="about-me">
+            <img src="placeholder-img.png" alt="About Me Image" class="about-me-image">
+            <div class="divider"></div>
+            <div class="about-me-text">
+                <div class="card">
+                    <h2>About Me</h2>
+                    <p>Write a short paragraph about yourself here. Include your interests, background, and anything you'd like to share.</p>
+                </div>
+            </div>
         </div>
+        <section class="projects-section">
+            <h1>Projects</h1>
+            <div class="projects-wrapper">
+                <button class="scroll-btn left-btn" onclick="scrollProjects(-1)">&lt;</button>
+                <div class="projects-container">
+                    <div class="project-box">
+                        <h2>Portfolio Website</h2>
+                        <p>This is an ongoing project in which I am working towards having a complete portfolio website. So far 2 versions have been produced, this is v2.</p>
+                        <button onclick="location.href='portfolio01.html'">Version 1</button>
+                    </div>
+                    <div class="project-box">
+                        <h2>Project Title</h2>
+                        <p>A brief explanation of the project goes here.</p>
+                        <button onclick="location.href='project2.html'">Learn More</button>
+                    </div>
+                    <div class="project-box">
+                        <h2>Project Title</h2>
+                        <p>A brief explanation of the project goes here.</p>
+                        <button onclick="location.href='project3.html'">Learn More</button>
+                    </div>
+                </div>
+                <button class="scroll-btn right-btn" onclick="scrollProjects(1)">&gt;</button>
+            </div>
+        </section>
+        <script>
+            let currentIndex = 0;
+
+            function scrollProjects(direction) {
+                const container = document.querySelector('.projects-container');
+                const projects = document.querySelectorAll('.project-box');
+                const projectWidth = projects[0].offsetWidth + 20;
+
+                currentIndex = Math.max(0, Math.min(currentIndex + direction, projects.length - 1));
+                const scrollPosition = currentIndex * projectWidth - (container.offsetWidth - projectWidth) / 2;
+
+                container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+            }
+        </script>
     </body>
 </html>
