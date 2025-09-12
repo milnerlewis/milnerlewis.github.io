@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="styles02.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <title>LMI Portfolio</title>
         <link rel="icon" href="placeholder-img.png" type="image/png">
     </head>
     <body>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio01.html">Portfolio 01</a></li>
+                <li><a href="portfolio02.html">Home</a></li>
+                <li><a href="index.html">Index</a></li>
                 <li><a href="#about-me">About Me</a></li>
+                <li><a href="contactForm.html">Contact Me</a></li>
             </ul>
         </nav>
         <section class="video-section">
@@ -20,7 +21,7 @@
             <div class="overlay">
                 <h1>Lewis Milner</h1>
                 <p>17 year old T-Level student learning Full Stack Development</p>
-                <img src="white_downarrow.png" alt="Overlay" class="overlay-img">
+                <a href="#about-me"><img src="white_downarrow.png" alt="Overlay" class="overlay-img"></a>
             </div>
         </section>
         <h1 id="about-me">About Me</h1>
@@ -42,7 +43,9 @@
                     <div class="project-box">
                         <h2>Portfolio Website</h2>
                         <p>This is an ongoing project in which I am working towards having a complete portfolio website. So far 2 versions have been produced, this is v2.</p>
-                        <button onclick="location.href='portfolio01.html'">Version 1</button>
+                        <div class="holographic-container">
+                            <div class="holographic-button" onclick="location.href='portfolio02.html'">Version 1</div>
+                        </div>
                     </div>
                     <div class="project-box">
                         <h2>Project Title</h2>

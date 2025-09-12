@@ -116,7 +116,7 @@ ol {
 }
 
 :root {
-    --primary-blue: #4a90e2;
+    --primary-blue: rgb(75, 175, 225);
     --primary-black: #000000;
     --primary-white: #ffffff;
 }
@@ -154,6 +154,8 @@ a:hover {
     padding: 20px;
     margin: 20px;
     max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card h3 {
@@ -180,7 +182,7 @@ footer {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--primary-black);
+    background-color: rgba(60, 60, 60, 0.5);
     border-bottom: 2px solid #a9a9a9;
     z-index: 1000;
     height: 60px;
@@ -273,7 +275,7 @@ footer {
 }
 
 .project-box button:hover {
-    background-color: #357ab8;
+    background-color: var(--primary-blue);
 }
 
 .scroll-btn {
@@ -289,12 +291,136 @@ footer {
 }
 
 .scroll-btn:hover {
-    background-color: #357ab8;
+    background-color: var(--primary-blue);
 }
 
 .scroll-btn:disabled {
     background-color: #a9a9a9;
     cursor: not-allowed;
+}
+
+.contact-section h1 {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea, input {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+}
+
+.holographic-button {
+  width: 200px;
+  height: 50px;
+  background: #111;
+  color: var(--primary-white);
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.holographic-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(75, 175, 225, 0.5);
+}
+
+.holographic-button:hover::before {
+    opacity: 1;
+    transform: rotate(-65deg) translateY(100%);
+}
+
+.stars {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    background: white;
+    box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+                22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+                38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+                53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+                68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+                83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+                98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+                18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+                35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+                50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
+                65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
+                80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
+                95vw 75vh 2px white;
+    animation: twinkle 8s infinite linear;
+}
+
+.shooting-star {
+    position: absolute;
+    left: -100px;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(240deg, white, transparent);
+    animation: shoot 3s linear infinite;
+    animation-delay: var(--delay, 0s);
+    top: var(--top, 50%);
+}
+
+@keyframes twinkle {
+    0%,
+    100% { 
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateX(0) translateY(0) rotate(25deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(120vw) translateY(50vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+.stars::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: white;
+    box-shadow: 8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+                33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+                57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+                81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+                3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+                27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+                51vw 92vh 2px white, 59vw 78vh 1px white;
+    animation: twinkle 3s infinite linear reverse;
 }
 
 /* Explanation of Advanced Styles */
